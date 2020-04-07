@@ -1,4 +1,8 @@
+## Data Visualization
+
 [Fatal accidents in Toronto](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/)
+
+## Web Scraping with Python
 
 [Kpop Rankings](https://ky-feng.github.io/data-projects/kpop-rankings/)
 
