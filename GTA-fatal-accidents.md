@@ -137,7 +137,7 @@ ggplot(aes(x=as.numeric(month), y=n), data=months) +
   xlab('Month') +
   scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
 ```
-![GTA-fatal-accidents_monthly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_monthly-graph.png)
+![GTA-fatal-accidents_monthly-graph.png](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_monthly-graph.png)
 
 What surprised me the most about this data is the sharp drop in February. I still consider February a winter month - perhaps something has changed then?
 
