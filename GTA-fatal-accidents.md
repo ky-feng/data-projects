@@ -5,6 +5,8 @@ Given this data, we ask a few questions, which will be addressed below.
 ### What time is it most unsafe to drive?
 
 First, let's import our libraries and our dataset.
+
+Input:
 ```markdown
 library(readr)
 library(dplyr)
@@ -15,6 +17,7 @@ data <- read.csv("Fatal_Collisions.csv")
 
 Looking through the data, I removed two rows with null/wrong data.
 
+Input:
 ```markdown
 data <- data %>% 
   filter(District %in% c("North York", 
