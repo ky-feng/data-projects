@@ -169,13 +169,14 @@ ggplot(months, aes(District, month, fill = n)) +
 
 We see from our heatmap that Scaborough and Toronto and East York have a greater share of accidents, especially in the winter months. This corresponds with the numbers we see from analyzing the data:
 
-```
+``` markdown
 data %>%
   group_by(District) %>%
   summarize (n=n()) %>%
   arrange(desc(n))
 ```
-```
+
+``` markdown
 # A tibble: 4 x 2
   District                  n
   <fct>                 <int>
