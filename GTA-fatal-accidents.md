@@ -20,38 +20,59 @@ Now, let's look at the data
 data %>%
   group_by(YEAR) %>%
   summarize (n=n()) %>%
-  arrange(desc(n))
+  arrange(desc(YEAR))
 ```
-From here, we we get a tibble shown below
+
+From here, we we get a tibble shown below:
+
 
 ``` markdown
 # A tibble: 11 x 2
     YEAR     n
    <int> <int>
- 1  2016    78
- 2  2018    66
- 3  2015    65
- 4  2013    63
- 5  2017    63
- 6  2008    54
- 7  2014    51
- 8  2009    48
- 9  2012    44
-10  2010    43
-11  2011    35
-
+ 1  2018    66
+ 2  2017    63
+ 3  2016    78
+ 4  2015    65
+ 5  2014    51
+ 6  2013    63
+ 7  2012    44
+ 8  2011    35
+ 9  2010    43
+10  2009    48
+11  2008    54
 ```
+
+The data seems pretty evenly dispersed across all years. What about other variables?
+
 ``` markdown
-data %>%
-  group_by(YEAR) %>%
-  summarize (n=n()) %>%
-  arrange(desc(n))
   
 data %>%
   group_by(LIGHT) %>%
   summarize (n=n()) %>%
   arrange(desc(n))
  
+ ```
+ 
+ ``` markdown
+ 
+ # A tibble: 8 x 2
+  LIGHT                    n
+  <fct>                <int>
+1 Daylight               317
+2 Dark                   140
+3 Dark, artificial       123
+4 Dawn, artificial         7
+5 Dusk                     7
+6 Dusk, artificial         7
+7 Daylight, artificial     5
+8 Dawn                     4
+ 
+```
+
+We see that accidents usually happen during daylight or dark, but never in between. What about hour?
+
+ ``` markdown
 hours <- data %>%
   group_by(Hour) %>%
   summarize (n=n()) %>%
@@ -63,6 +84,9 @@ ggplot(aes(x=Hour, y=n), data =hours) +
   ylab('Number') +
   xlab('Hour')
 
+```
+
+``` markdown
 # Header 1
 ## Header 2
 ### Header 3
