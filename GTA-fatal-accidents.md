@@ -6,14 +6,24 @@ Given this data, we ask a few questions, which will be addressed below.
 
 First, let's import our libraries and our dataset.
 ```markdown
-
 library(readr)
 library(dplyr)
 library(ggplot2)
 
 data <- read.csv("Fatal_Collisions.csv")
-
 ```
+
+Looking through the data, I removed two rows with null/wrong data.
+
+```markdown
+data <- data %>% 
+  filter(District %in% c("North York", 
+                         "Etobicoke York", 
+                         "Scarborough",
+                         "Toronto and East York"))
+```
+
+
 Now, let's look at the data
 
 ``` markdown
@@ -46,12 +56,10 @@ From here, we we get a tibble shown below:
 The data seems pretty evenly dispersed across all years. What about other variables?
 
 ``` markdown
-  
 data %>%
   group_by(LIGHT) %>%
   summarize (n=n()) %>%
   arrange(desc(n))
- 
  ```
  
  ``` markdown
