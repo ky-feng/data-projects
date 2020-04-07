@@ -94,7 +94,7 @@ ggplot(aes(x=Hour, y=n), data =hours) +
 
 We get the following line chart:
 
-![GTA-fatal-accidents_hourly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_hourly-graph.png)
+![GTA-fatal-accidents_hourly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/hourly-graph.png)
 
 I suppose the best time for a walk/drive is approximately 4am, and the worst time for a walk or a drive is approximately 6pm! This coincides with GTA rush hour, which, according to is from . I suppose a few differences are .....
 
@@ -144,7 +144,7 @@ ggplot(aes(x=as.numeric(month), y=n), data=months) +
   xlab('Month') +
   scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
 ```
-![GTA-fatal-accidents_monthly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_monthly-graph.png)
+![GTA-fatal-accidents_monthly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/monthly-graph.png)
 
 What surprised me the most about this data is the sharp drop in February. I still consider February a winter month - perhaps something has changed then?
 
@@ -164,7 +164,7 @@ ggplot(months, aes(District, month, fill = n)) +
   xlab('District')
 ```
 
-![GTA-fatal-accidents_district-month-heatmap](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_district-month-heatmap.png)
+![GTA-fatal-accidents_district-month-heatmap](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/district-month-tile-heatmap.png)
 
 We see from our heatmap that Scaborough and Toronto and East York have a greater share of accidents, especially in the winter months. This corresponds with the numbers we see from analyzing the data:
 
@@ -246,7 +246,7 @@ ggplot(df,aes(x=District,y=n,fill=Neighbourh))+
   xlab("Districts")+ylab("Count")
 ```
 
-![GTA-fatal-accidents_district-neighbourh](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_district-neighbourh.png)
+![GTA-fatal-accidents_district-neighbourh](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/district-neighbourh.png)
 
 We see that Etobicoke York, while having fewer overall accidents in their District, has one neighborhood - West Humber-Clairville (1) - that has the highest accident fatality rate in all of the GTA in our dataset. What we also notice is that this neighborhood is an exception - other than West Humber-Clairville, Etobicoke York has the fewest number of neighborhoods with accidents greater than or equal to five.
 
@@ -268,7 +268,7 @@ leaflet(data) %>%
 
 We look at the images, and then zoom in to check it out.
 
-![GTA-fatal-accidents_heat-map-1](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_heat-map-1.png)
-![GTA-fatal-accidents_heat-map-2](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_heat-map-2.png)
+![GTA-fatal-accidents_heat-map-1](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/heat-map-1.png)
+![GTA-fatal-accidents_heat-map-2](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/heat-map-2.png)
 
 From far away, we can't really tell much from our heat map. But when we zoom in, we start seeing hotspots. Hard to tell from this image, but the zones (when zoomed in and scrolled) reveal that downtown Toronto has some of the highest rates of automobile deaths, as does major roads like Gardiner Expressway (near Parkdale) and Yonge Street.
