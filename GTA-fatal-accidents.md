@@ -4,8 +4,7 @@ Given this data, we ask a few questions, which will be addressed below.
 
 ### What time is it most unsafe to drive?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+First, let's import our libraries and our dataset.
 ```markdown
 
 library(readr)
@@ -13,6 +12,13 @@ library(dplyr)
 library(ggplot2)
 
 data <- read.csv("Fatal_Collisions.csv")
+
+```
+
+
+``` markdown
+
+
 
 data %>%
   group_by(YEAR) %>%
