@@ -167,12 +167,20 @@ ggplot(months, aes(District, month, fill = n)) +
 
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+We see from our heatmap that Scaborough and Toronto and East York have a greater share of accidents, especially in the winter months. This corresponds with the numbers we see from analyzing the data:
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ky-feng/miniature-octo-spork/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
+data %>%
+  group_by(District) %>%
+  summarize (n=n()) %>%
+  arrange(desc(n))
+```
+```
+# A tibble: 4 x 2
+  District                  n
+  <fct>                 <int>
+1 Toronto and East York   182
+2 Scarborough             173
+3 Etobicoke York          130
+4 North York              123
+```
