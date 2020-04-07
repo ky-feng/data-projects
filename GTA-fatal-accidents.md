@@ -14,12 +14,34 @@ library(ggplot2)
 data <- read.csv("Fatal_Collisions.csv")
 
 ```
-
+Now, let's look at the data
 
 ``` markdown
+data %>%
+  group_by(YEAR) %>%
+  summarize (n=n()) %>%
+  arrange(desc(n))
+```
+From here, we we get a tibble shown below
 
+``` markdown
+# A tibble: 11 x 2
+    YEAR     n
+   <int> <int>
+ 1  2016    78
+ 2  2018    66
+ 3  2015    65
+ 4  2013    63
+ 5  2017    63
+ 6  2008    54
+ 7  2014    51
+ 8  2009    48
+ 9  2012    44
+10  2010    43
+11  2011    35
 
-
+```
+``` markdown
 data %>%
   group_by(YEAR) %>%
   summarize (n=n()) %>%
