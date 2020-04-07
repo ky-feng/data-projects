@@ -6,7 +6,6 @@ Given this data, we ask a few questions, which will be addressed below.
 
 First, let's import our libraries and our dataset.
 
-Input:
 ```markdown
 library(readr)
 library(dplyr)
@@ -17,7 +16,6 @@ data <- read.csv("Fatal_Collisions.csv")
 
 Looking through the data, I removed two rows with null/wrong data.
 
-Input:
 ```markdown
 data <- data %>% 
   filter(District %in% c("North York", 
@@ -186,3 +184,91 @@ data %>%
 3 Etobicoke York          130
 4 North York              123
 ```
+
+
+### Where do fatal collisions most often occur?
+
+Let's re-import our libraries and datasets, and clean our data.
+
+```markdown
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+data <- read.csv("Fatal_Collisions.csv")
+
+data <- data %>% 
+  filter(District %in% c("North York", 
+                         "Etobicoke York", 
+                         "Scarborough",
+                         "Toronto and East York"))
+```
+
+We found previously that, in terms of Toronto districts, Toronto/East York and Scarborough have a lot more accidents than Etibocoke York/North York. But while we looked at districts, we failed to include neighborhoods. let's check that out now:
+
+```markdown
+data %>%
+  group_by(Neighbourh,District=District) %>%
+  summarise (n=n()) %>%
+  arrange (desc(n))
+```
+```markdown
+# A tibble: 143 x 3
+# Groups:   Neighbourh [128]
+   Neighbourh                          District                n
+   <fct>                               <fct>               <int>
+ 1 West Humber-Clairville (1)          Etobicoke York         22
+ 2 South Parkdale (85)                 Toronto and East Y…    18
+ 3 Clairlea-Birchmount (120)           Scarborough            16
+ 4 Waterfront Communities-The Island … Toronto and East Y…    14
+ 5 Malvern (132)                       Scarborough            12
+ 6 Steeles (116)                       Scarborough            12
+ 7 Wexford/Maryvale (119)              Scarborough            12
+ 8 Islington-City Centre West (14)     Etobicoke York         11
+ 9 Moss Park (73)                      Toronto and East Y…    11
+10 Clanton Park (33)                   North York             10
+# ... with 133 more rows
+```
+That's a lot of rows! Upon closer inspection, we realize that there are many neighborhoods with very few accidents relative to other neighborhoods. We want to look at neighborhoods iwth the highest concentration of automobile fatalities. Let's look at neighborhoods with fatalities greater than 5...
+
+```markdown
+data %>%
+  group_by(Neighbourh,District=District) %>%
+  summarise (n=n()) %>%
+  arrange (desc(n)) %>%
+  filter (n >= 5)
+
+ggplot(df,aes(x=District,y=n,fill=Neighbourh))+
+  geom_bar(stat="identity",position="dodge")+
+  scale_fill_discrete(name="Neighbourhoods",
+                      breaks=c(),
+                      labels=c())+
+  xlab("Districts")+ylab("Count")
+```
+
+![GTA-fatal-accidents_district-neighbourh](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_district-neighbourh.png)
+
+We see that Etobicoke York, while having fewer overall accidents in their District, has one neighborhood - West Humber-Clairville (1) - that has the highest accident fatality rate in all of the GTA in our dataset. What we also notice is that this neighborhood is an exception - other than West Humber-Clairville, Etobicoke York has the fewest number of neighborhoods with accidents greater than or equal to five.
+
+In comparison, Scarborough and Toronto/East York have many more bars, and thus many more neighborhoods with automobile fatalities. This does not necessarily mean that these districts have worse roads, etc. It makes sense, as they are more populated than Etobicoke or North York.
+
+For fun, let's look at a heat map of the GTA region:
+
+```
+library(leaflet)
+library(leaflet.extras)
+library(leaflet.providers)
+
+leaflet(data) %>%
+  addProviderTiles(providers$CartoDB.DarkMatter) %>%
+  addHeatmap(
+    lng = ~X, lat = ~Y, blur = 15, max = 0.02, radius = 12
+  )
+```
+
+We look at the images, and then zoom in to check it out.
+
+![GTA-fatal-accidents_heat-map-1](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_heat-map-1.png)
+![GTA-fatal-accidents_heat-map-2](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_heat-map-2.png)
+
+From far away, we can't really tell much from our heat map. But when we zoom in, we start seeing hotspots. Hard to tell from this image, but the zones (when zoomed in and scrolled) reveal that downtown Toronto has some of the highest rates of automobile deaths, as does major roads like Gardiner Expressway (near Parkdale) and Yonge Street.
