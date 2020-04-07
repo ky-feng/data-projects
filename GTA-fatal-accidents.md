@@ -42,9 +42,9 @@ From here, we we get a tibble shown below:
    <int> <int>
  1  2018    66
  2  2017    63
- 3  2016    78
+ 3  2016    77
  4  2015    65
- 5  2014    51
+ 5  2014    50
  6  2013    63
  7  2012    44
  8  2011    35
@@ -63,19 +63,17 @@ data %>%
  ```
  
  ``` markdown
- 
- # A tibble: 8 x 2
+# A tibble: 8 x 2
   LIGHT                    n
   <fct>                <int>
 1 Daylight               317
-2 Dark                   140
-3 Dark, artificial       123
+2 Dark                   139
+3 Dark, artificial       122
 4 Dawn, artificial         7
 5 Dusk                     7
 6 Dusk, artificial         7
 7 Daylight, artificial     5
 8 Dawn                     4
- 
 ```
 
 We see that accidents usually happen during daylight or dark, but never in between. What about hour?
@@ -125,17 +123,17 @@ months
  2 07       61
  3 10       60
  4 11       58
- 5 01       57
+ 5 01       56
  6 08       56
  7 12       50
  8 05       48
  9 06       42
 10 03       41
 11 04       39
-12 02       34
+12 02       33
 ```
 
-We definitely see that the data seems too align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than spring or summer. So this data shows us the results. What about a graph?
+We definitely see that the data seems too align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than spring or summer. So this data shows us the results. It's a little confusing to look at though. What about a graph?
 
 ``` markdown
 ggplot(aes(x=as.numeric(month), y=n), data=months) + 
