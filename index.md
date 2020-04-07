@@ -1,3 +1,6 @@
+[Fatal accidents in Toronto](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/)
+[Kpop Rankings](https://ky-feng.github.io/data-projects/kpop-rankings/)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/ky-feng/miniature-octo-spork/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
