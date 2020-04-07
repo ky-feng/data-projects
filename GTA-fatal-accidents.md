@@ -137,25 +137,28 @@ ggplot(aes(x=as.numeric(month), y=n), data=months) +
   xlab('Month') +
   scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
 ```
-![GTA-fatal-accidents_monthly-graph.png](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_monthly-graph.png)
+![GTA-fatal-accidents_monthly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_monthly-graph.png)
 
 What surprised me the most about this data is the sharp drop in February. I still consider February a winter month - perhaps something has changed then?
 
+
+Lastly, let's just look, for fun, at the relationship between fatal accidents in GTA districts and months.
+
 ``` markdown
+months <- data %>%
+  mutate(month=substr(DATE,6,7)) %>%
+  group_by(District,month) %>%
+  summarize(n=n())
 
-# Header 1
-## Header 2
-### Header 3
+ggplot(months, aes(District, month, fill = n)) +
+  geom_tile(color = "black") +
+  geom_text(aes(label=n), color='white') +
+  ggtitle("Fatal Crash by District and Month") +
+  xlab('District')
+```
 
-- Bulleted
-- List
+![GTA-fatal-accidents_district-month-heatmap](https://ky-feng.github.io/data-projects/GTA-fatal-accidents_district-month-heatmap.png)
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
