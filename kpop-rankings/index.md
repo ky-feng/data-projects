@@ -1,3 +1,7 @@
+## Predicting Trends in Korean Pop
+
+### Scraping Data
+
 ```markdown
 
 from bs4 import BeautifulSoup
