@@ -323,5 +323,47 @@ ggplot(novels,aes(words,prop_uniquewords)) +
 
 ![plot_wordspropunique.png](https://ky-feng.github.io/data-projects/literature/plot_wordspropunique.png)
 
-Okay... we honestly can't really see much from this graph. 
+The graph seems to demonstrate a negative correlation, though not very strong. Let's check just to make sure:
 
+```
+> cor(novels$prop_uniquewords,novels$words)
+[1] -0.4180739
+```
+
+Definitely a correlation, though not terribly strong. Let's just say moderate. Let's plot this and analyze using linear regression.
+
+```
+set.seed(123)
+trainingData <- novels[sample(1:nrow(novels), 0.8*nrow(novels)), ]  
+testData  <- novels[-trainingRowIndex, ]
+
+lmNovels <- lm(words ~ prop_uniquewords, data=novels)
+prediction <- predict(lmNovels, testData) 
+
+summary(lmMod)
+```
+We get the following output:
+```
+
+Call:
+lm(formula = words ~ prop_uniquewords, data = novels)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-93769 -31208 -11000  18560 183147 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        216207      36091   5.991 2.99e-07 ***
+prop_uniquewords  -719310     230445  -3.121  0.00311 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 56120 on 46 degrees of freedom
+Multiple R-squared:  0.1748,	Adjusted R-squared:  0.1568 
+F-statistic: 9.743 on 1 and 46 DF,  p-value: 0.003108
+```
+
+So what do we see? We see from our p value that there exists a statistically significant relationship between our two variables. However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. REgardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05, demonstrating a relationshipp between our variables.
+
+##
