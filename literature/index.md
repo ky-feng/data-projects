@@ -376,9 +376,11 @@ Multiple R-squared:  0.1748,	Adjusted R-squared:  0.1568
 F-statistic: 9.743 on 1 and 46 DF,  p-value: 0.003108
 ```
 
+Equation of linear regression: `y = -719310 * x + 216207`
+
 So what do we see? 
-- We see that our p value of 0.00311 is statistically significant at less than 0.05, demonstrating that prop_uniquewords is a good addition to our model.We reject our null hypothesis that our estimate should be 0, and accept the value of -719310 as our slope.
-- However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. 
-- Regardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05. We therefore infer a relationship between our variables.
+- Pr(>|t|) value of 0.00311 is statistically significant at less than 0.05, demonstrating that prop_uniquewords is a good addition to our model. We reject our null hypothesis that our prop_uniquewords estimate should be 0, and accept the value of -719310 as our slope.
+- R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model is not good.
+- F-statistic has a p-value less than 0.05. We reject the null hypothesis that the intercept-only fit is equivalent to our present model.
 
 ### K-Means Clustering
