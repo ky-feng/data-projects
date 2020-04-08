@@ -1,12 +1,17 @@
+Welcome to my page of data projects!
+
 ## Data Visualization
 
 [Fatal accidents in Toronto](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/)
+[Literature Analysis](https://ky-feng.github.io/data-projects/literature/)
 
 ## Web Scraping with Python
 
 [Kpop Rankings](https://ky-feng.github.io/data-projects/kpop-rankings/)
 
-## Welcome to GitHub Pages
+## Prediction/ML
+[Literature Analysis](https://ky-feng.github.io/data-projects/literature/)
+
 
 You can use the [editor on GitHub](https://github.com/ky-feng/miniature-octo-spork/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
