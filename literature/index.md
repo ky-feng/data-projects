@@ -364,6 +364,9 @@ Multiple R-squared:  0.1748,	Adjusted R-squared:  0.1568
 F-statistic: 9.743 on 1 and 46 DF,  p-value: 0.003108
 ```
 
-So what do we see? We see from our p value that there exists a statistically significant relationship between our two variables. However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. REgardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05, demonstrating a relationshipp between our variables.
+So what do we see? 
+- We see that our p value of 0.00311 is statistically significant at less than 0.05, demonstrating that prop_uniquewords is a good addition to our model.We reject our null hypothesis that our estimate should be 0, and accept the value of -719310 as our slope.
+- However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. 
+- REgardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05, demonstrating a relationshipp between our variables.
 
 ##
