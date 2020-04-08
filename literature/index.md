@@ -384,3 +384,112 @@ So what do we see?
 - F-statistic has a p-value less than 0.05. We reject the null hypothesis that the intercept-only fit is equivalent to our present model.
 
 ### K-Means Clustering
+
+First, let's extract the two columns we want to use in our clustering algorithm.
+
+```
+library(dplyr)
+
+data_kmeans <- novels %>%
+  select(prop_uniquewords,words)
+ 
+ data_kmeans
+```
+
+```
+# A tibble: 48 x 2
+   prop_uniquewords  words
+              <dbl>  <dbl>
+ 1            0.143 190723
+ 2            0.168  69463
+ 3            0.151  78935
+ 4            0.134 136293
+ 5            0.119 166185
+ 6            0.101 159540
+ 7            0.119  58737
+ 8            0.108 121544
+ 9            0.162  52634
+10            0.230  54512
+# ... with 38 more rows
+```
+
+Given the large difference between values of prop_uniquewords and words, we should scale our data.
+
+```
+data_kmeans <- data_kmeans %>%
+mutate(prop_uniquewords = scale(prop_uniquewords), 
+    words = scale(words))
+```
+
+```
+# A tibble: 48 x 2
+   prop_uniquewords  words
+              <dbl>  <dbl>
+ 1          -0.279   1.38 
+ 2           0.446  -0.605
+ 3          -0.0339 -0.450
+ 4          -0.526   0.489
+ 5          -0.951   0.978
+ 6          -1.44    0.869
+ 7          -0.957  -0.780
+ 8          -1.27    0.247
+ 9           0.274  -0.880
+10           2.19   -0.849
+# ... with 38 more rows
+```
+
+Now, to determine the number of clusters...
+
+```
+wss = 0
+
+for (i in 1:10) {
+  km.out <- kmeans(data_kmeans, centers = i, nstart = 20)
+  wss[i] <- km.out$tot.withinss
+}
+
+plot(1:10, wss, type = "b", 
+     xlab = "Number of Clusters", 
+     ylab = "Within groups sum of squares")
+```
+
+![plot_clusters.png](https://ky-feng.github.io/data-projects/literature/plot_clusters.png)
+
+We therefore choose 2 to be our number of clusters.
+
+```
+results_kmeans <- kmeans(data_kmeans,2)
+results_kmeans
+```
+
+```
+K-means clustering with 2 clusters of sizes 18, 30
+
+Cluster means:
+  prop_uniquewords      words
+1       -0.8290527  1.0063013
+2        0.4974316 -0.6037808
+
+Clustering vector:
+ [1] 1 2 2 1 1 1 2 1 2 2 1 2 2 2 1 2 2 2 2 2 2 1 1 1 1 2 2 1 2 2 2 2 2 2 1 1 1
+[38] 2 2 1 1 2 2 2 2 2 2 1
+
+Within cluster sum of squares by cluster:
+[1] 21.49706 23.54379
+ (between_SS / total_SS =  52.1 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"      
+```
+
+We see  2 clusters of size 18 and 30. Our scaled values demonstrate that our first cluster has greater words and lower proportion of uniquewords, while our second cluster has fewer words but greater proportion of unique words. Our within cluster sum of squares, at 52.1%, demonstrates that there is quite a lot of variation in the mean - our clusters won't be neat and tidy when we plot them.
+
+```
+library(cluster)
+clusplot(data_kmeans, 
+         results_kmeans$cluster)
+```
+
+![plot_kmeans.png](https://ky-feng.github.io/data-projects/literature/plot_kmeans.png)
