@@ -342,10 +342,12 @@ Definitely a correlation, though not terribly strong. Let's just say moderate. L
 
 ### Linear Regression
 
+We break up our data set using the Pareoto Principle (80-20 rule).
+
 ```
 set.seed(123)
 trainingData <- novels[sample(1:nrow(novels), 0.8*nrow(novels)), ]  
-testData  <- novels[-trainingRowIndex, ]
+testData  <- novels[-sample(1:nrow(novels), 0.8*nrow(novels)), ]
 
 lmNovels <- lm(words ~ prop_uniquewords, data=novels)
 prediction <- predict(lmNovels, testData) 
@@ -377,6 +379,6 @@ F-statistic: 9.743 on 1 and 46 DF,  p-value: 0.003108
 So what do we see? 
 - We see that our p value of 0.00311 is statistically significant at less than 0.05, demonstrating that prop_uniquewords is a good addition to our model.We reject our null hypothesis that our estimate should be 0, and accept the value of -719310 as our slope.
 - However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. 
-- REgardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05, demonstrating a relationshipp between our variables.
+- Regardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05. We therefore infer a relationship between our variables.
 
 ### K-Means Clustering
