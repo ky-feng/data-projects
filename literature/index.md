@@ -1,10 +1,12 @@
-In progress...
+# Analysis of Literariness and Poeticism in 20th and 21st Century Novels
 
-When I was younger, I was an avid reader... I'd always wanted to be a novelist (who am I kidding, I still do), and a good work of prose gets me every time, so much that I wanted to mimic it. But what exactly makes a piece of literature literary? And how do great writers, like F. Scott Fitzgerald, create works of art that defies 
+I have always been in avid reader - as a young girl, I spent my recesses wandering around my school library, my nose buried in some book. When I grew older, I realized the imporance of literary work. Literary novelists are scribes - they share knowledge of human experience, through which we share in human emotions. But how is it possible that lines on a page are transformed into emotion? Why is it that I read Fitzgerald's work, and feel wistfulness; or anger, when reading Sylvia Plath's poetry?
 
-In my introductory neuro course, my professor spoke of the nebulous relationship of mind and matter - how is it that words on a page evoke profound emotions? How do I, as an author, provoke the same wistfulness that underlies F. Scott Fitzgerald's novels; or encapsulate the same __ of vengeance of __?
+It's an interesting matter, subjective experience - non-reductionists would argue that it's impossible for hard data to truly detect wihch novels will make us cry, or which would transform our lives. However, I believe that data is important to some understanding of books. I'm willing to try to find out.
 
-For fun, I started this project. I wanted to analyze works of literature that had great prose. I also wanted to analyze works of literature that constituted as "literary."
+For fun, I started this project. I wanted to analyze novels that were "literary" and that had "poetic prose." I wanted to know what exactly it was about authors like Fitzgerald and Nabokov that I enjoyed reading. I also wanted to improve my own short stories, and see how I measure up.
+
+It's still a work in progress, but here goes...
 
 ## Who are the great novelists who write poetic prose?
 
