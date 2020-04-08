@@ -1,4 +1,4 @@
-# Analysis of Literariness and Poeticism in 20th and 21st Century Novels
+# Analysis of Literariness and Poeticism in Novels
 
 I have always been in avid reader - as a young girl, I spent my recesses wandering around my school library, my nose buried in some book. When I grew older, I realized the imporance of literary work. Literary novelists are scribes - they share knowledge of human experience, through which we share in human emotions. But how is it possible that lines on a page are transformed into emotion? Why is it that I read Fitzgerald's work, and feel wistfulness; or anger, when reading Sylvia Plath's poetry?
 
