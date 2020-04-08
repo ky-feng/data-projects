@@ -1,6 +1,8 @@
-## Fatal Automobile Accidents in the GTA
+## Visualizing Fatal Automobile Accidents in the GTA
 
-Given this data, we ask a few questions, which will be addressed below.
+dataset: http://data.torontopolice.on.ca/datasets?q=fatal%20collisions
+
+Given this data, we ask a few questions, which we will attempt to visually address below.
 
 ### What time is it most unsafe to drive?
 
@@ -14,7 +16,7 @@ library(ggplot2)
 data <- read.csv("Fatal_Collisions.csv")
 ```
 
-Looking through the data, I removed two rows with null/wrong data.
+Looking through the data, I found 2 rows with null and incorrect district data. Given the large size of our data set, I removed the two rows using the code below:
 
 ```markdown
 data <- data %>% 
@@ -25,7 +27,7 @@ data <- data %>%
 ```
 
 
-Now, let's look at the data
+Now, let's look at the data!
 
 ``` markdown
 data %>%
@@ -33,9 +35,6 @@ data %>%
   summarize (n=n()) %>%
   arrange(desc(YEAR))
 ```
-
-From here, we we get a tibble shown below:
-
 
 ``` markdown
 # A tibble: 11 x 2
@@ -77,7 +76,7 @@ data %>%
 8 Dawn                     4
 ```
 
-We see that accidents usually happen during daylight or dark, but never in between. What about hour?
+We see that accidents happen with almost equal frequency during daylight or dark, but rarely in between. What about hour?
 
 ```
 hours <- data %>%
@@ -92,11 +91,9 @@ ggplot(aes(x=Hour, y=n), data =hours) +
   xlab('Hour')
 ```
 
-We get the following line chart:
-
 ![GTA-fatal-accidents_hourly-graph](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/hourly-graph.png)
 
-I suppose the best time for a walk/drive is approximately 4am, and the worst time for a walk or a drive is approximately 6pm! This coincides with GTA rush hour, which, according to is from . I suppose a few differences are .....
+I, like many others, enjoy late-night walks or drives to relax after a day's work. I suppose, given the above graph, that the safest time to be out (and not be fatally hit by a car) is approximately 4am, and the worst time for a walk or a drive is approximately 6pm. This coincides with GTA rush hour, which can be stressful and terrifying to drive in.
 
 So now, what about date? Or more specifically, month? We assume that more accidents will happen in the winter months. Does the data confirm our hypothesis? Let's check to make sure.
 
@@ -134,7 +131,9 @@ months
 12 02       33
 ```
 
-We definitely see that the data seems too align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than spring or summer. So this data shows us the results. It's a little confusing to look at though. What about a graph?
+We definitely see that the data seems too align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than months in spring or summer. 
+
+So this data shows us the results. It's a little confusing to look at though. What about a graph?
 
 ``` markdown
 ggplot(aes(x=as.numeric(month), y=n), data=months) + 
@@ -148,8 +147,7 @@ ggplot(aes(x=as.numeric(month), y=n), data=months) +
 
 What surprised me the most about this data is the sharp drop in February. I still consider February a winter month - perhaps something has changed then?
 
-
-Lastly, let's just look, for fun, at the relationship between fatal accidents in GTA districts and months.
+Let's just look, for fun, at the relationship between fatal accidents in GTA districts and months.
 
 ``` markdown
 months <- data %>%
@@ -229,7 +227,7 @@ data %>%
 10 Clanton Park (33)                   North York             10
 # ... with 133 more rows
 ```
-That's a lot of rows! Upon closer inspection, we realize that there are many neighborhoods with very few accidents relative to other neighborhoods. We want to look at neighborhoods iwth the highest concentration of automobile fatalities. Let's look at neighborhoods with fatalities greater than 5...
+That's a lot of rows! Upon closer inspection, we realize that there are many neighborhoods with very few accidents relative to other neighborhoods. We want to look at neighborhoods with the highest concentration of automobile fatalities. Let's look at neighborhoods with fatalities greater than 5...
 
 ```markdown
 data %>%
@@ -248,9 +246,9 @@ ggplot(df,aes(x=District,y=n,fill=Neighbourh))+
 
 ![GTA-fatal-accidents_district-neighbourh](https://ky-feng.github.io/data-projects/GTA-fatal-accidents/district-neighbourh.png)
 
-We see that Etobicoke York, while having fewer overall accidents in their District, has one neighborhood - West Humber-Clairville (1) - that has the highest accident fatality rate in all of the GTA in our dataset. What we also notice is that this neighborhood is an exception - other than West Humber-Clairville, Etobicoke York has the fewest number of neighborhoods with accidents greater than or equal to five.
+We see that Etobicoke York has one neighborhood - West Humber-Clairville (1) - that has the highest accident fatality rate in all of the GTA in our dataset. That's scary! What we also notice is that this neighborhood is an exception - other than West Humber-Clairville, Etobicoke York has the fewest number of neighborhoods with accidents greater than or equal to five.
 
-In comparison, Scarborough and Toronto/East York have many more bars, and thus many more neighborhoods with automobile fatalities. This does not necessarily mean that these districts have worse roads, etc. It makes sense, as they are more populated than Etobicoke or North York.
+In comparison, Scarborough and Toronto/East York have many more bars, and thus many more neighborhoods with automobile fatalities. This does not necessarily mean that these districts have worse roads - perhaps population density is greater in Scarborough and Toronto/East York. Perhaps certain intersections are more congested...
 
 For fun, let's look at a heat map of the GTA region:
 
