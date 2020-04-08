@@ -269,8 +269,8 @@ data.to_csv(r'novels.csv')
 display(data)
 ```
 
-some of my output/csv:
-IMAGE
+Some of my output/CSV:
+![list_workingnovels.png](https://ky-feng.github.io/data-projects/literature/list_workingnovels.png)
 
 A lot of my variables got cut off. But now that we have our csv, we can get going on the data...
 
