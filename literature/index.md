@@ -8,11 +8,11 @@ For fun, I started this project. I wanted to analyze novels that were "literary"
 
 It's still a work in progress, but here goes...
 
-## Who are the great novelists who write poetic prose?
+## What is literariness? What is poetic prose?
 
-### Who are the great novelists?
+### What novels are considered literary?
 
-Throughout my searching, I discovered a list, dubbed "1001 Books You Must Read Before You Die." I decided to use this list, which many have posted on blogs. I specifically used the core list from this site: http://bucketlistbookreviews.com/the-lists/differences-between-the-original-and-current-1001-lists/
+Throughout my searching, I discovered a list, dubbed "1001 Books You Must Read Before You Die." I decided to use this list to measure literariness, especially this site: http://bucketlistbookreviews.com/the-lists/differences-between-the-original-and-current-1001-lists/
 
 Let's save the list into a txt, and transform it into a csv.
 
@@ -39,7 +39,7 @@ display(authors)
 authors.to_csv('authors.csv', index=False, header=False)
 ```
 
-The list I get from Jupyter is kinda long, so I'll just show you the first 15 lines of the 731 I got from 2012. Going through the list, I see familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift... Now where to get their works of literature?
+The list I get from Jupyter is kinda long, so I'll just show you the first 15 lines of the 731 I got from 2012. Going through the list, I see familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift. So many novelists, with so many novels, but not all of them write "poetically" (especially not Hemingway). So how exactly do I measure poeticism?
 
 ### What novelists write "poetic" prose?
 
@@ -53,15 +53,15 @@ import pandas as pd
 import string
 import csv
 
-reddit = praw.Reddit(client_id='X-C8vFgxE4SPOg', \
-                     client_secret='PH0DQXrJBkFWJOnho760D09n6G0', \
+#removed information here for privacy
+reddit = praw.Reddit(client_id='~insert_id~', \
+                     client_secret='~insert_code~', \
                      user_agent='proseporn', \
-                     username='x-halcyon', \
-                     password='12345x3')
+                     username='~insert_username~', \
+                     password='~insert_password~')
 
 subreddit = reddit.subreddit('proseporn')
 
-#top_subreddit = subreddit.top()
 top_subreddit = subreddit.top(limit=3000)
 
 topics_dict = { "title":[], \
@@ -89,7 +89,7 @@ for index,row in topics_data.iterrows():
     row_titles.append(row['title'])
 ```
 
-This gets me a lot of whack data that needs cleaning... here are the first few lines of the data i received:
+This gets me a lot of ugly data that needs cleaning. Here are the first few lines of the data for reference:
 
 ```markdown
 Anagram Like A Boss [x-post from /r/pics]
@@ -105,7 +105,7 @@ Stephen Fry - "The Hippopotamus"
 Either/Or:Part I by S. Kierkegaard
 ```
 
-How do we cross-reference this data with the great list of authors? I decided to throw the last names of authors from 1001 novels into a list, and then cross reference every line from reddit's title posts.
+How do we cross-reference this data with the great list of authors? I decided to throw the last names of authors from 1001 novels into a list, and then cross reference these authors with every line from Reddit's title posts.
 
 ```markdown
 #created the list of authors
@@ -145,7 +145,7 @@ author_counter = {'author':author_list,
 pd.DataFrame(author_counter).sort_values('count',ascending=False)
 ```
 
-what do we get? we get a list of authors who wrote novels that made it to the 1001  list, and who wrote poetic prose. Here are some results:
+What do we get? We get a list of authors who write "poetically" and who wrote novels that made it to the 1001 list. Here are the results:
 
 ```markdown
 
@@ -168,11 +168,13 @@ what do we get? we get a list of authors who wrote novels that made it to the 10
 1	Philip Roth	8
 82	Ernest Hemingway	8
 ```
-Honestly, not surprised at the results. McCarthy's the only real modern author on the list, joined by many great novelists: nabokov, Fitzgerald, Faulkner, Joyce. Now that we have a list of some authors we want to analyze, let's find their literature.
+
+Honestly, not surprised at the results (except for Hemingway). McCarthy's the only real modern author on the list, joined by many novelists renowned for their mastery of the English language: Nabokov, Fitzgerald, Faulkner, Joyce. Now that we have a list of some authors we want to analyze, let's find their literature.
 
 ## Finding Novels and their Data
 
 After relentlessly hunting through the interwebs for txt versions of great novels, I found 47 novels to analyze. from these 47 novels, I derived certain variables...
+
 - novel name
 - author
 - word count
@@ -266,7 +268,7 @@ display(data)
 some of my output/csv:
 IMAGE
 
-Hoestly, a lot of my variables got cut off. Now that we have our csv, we can get going on the data...
+A lot of my variables got cut off. But now that we have our csv, we can get going on the data...
 
 ## Visualizing the Data
 
@@ -325,7 +327,11 @@ ggplot(novels,aes(words,prop_uniquewords)) +
 
 ![plot_wordspropunique.png](https://ky-feng.github.io/data-projects/literature/plot_wordspropunique.png)
 
-The graph seems to demonstrate a negative correlation, though not very strong. Let's check just to make sure:
+The graph seems to demonstrate a negative correlation, though not very strong. Let's look at the data, and run some analysis for fun.
+
+## Data Analysis
+
+### Correlation
 
 ```
 > cor(novels$prop_uniquewords,novels$words)
@@ -333,6 +339,8 @@ The graph seems to demonstrate a negative correlation, though not very strong. L
 ```
 
 Definitely a correlation, though not terribly strong. Let's just say moderate. Let's plot this and analyze using linear regression.
+
+### Linear Regression
 
 ```
 set.seed(123)
@@ -371,4 +379,4 @@ So what do we see?
 - However, our R-squared value of 0.1568 is close to 0 - the variability of our independent variable (words) seems to have very little to do with our dependent variable (prop_uniquewords), meaning our model isn't very good. 
 - REgardless, there seems to be a correlatin between our two variables - F-statistic has a p-value less than 0.05, demonstrating a relationshipp between our variables.
 
-##
+### K-Means Clustering
