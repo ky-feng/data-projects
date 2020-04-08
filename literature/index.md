@@ -41,7 +41,7 @@ authors.to_csv('authors.csv', index=False, header=False)
 
 The list I get from Jupyter is kinda long, so I'll just show you the first 15 lines of the 731 I got from 2012.
 
-![authorlist - 1001.png](https://ky-feng.github.io/data-projects/literature/authorlist - 1001.png)
+![authorlist-1001.png](https://ky-feng.github.io/data-projects/literature/authorlist-1001.png)
 
 Going through the list, I see familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift. So many novelists, with so many novels, but not all of them write "poetically" (especially not Hemingway). So how exactly do I measure poeticism?
 
