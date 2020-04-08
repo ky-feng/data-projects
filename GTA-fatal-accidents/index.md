@@ -131,7 +131,7 @@ months
 12 02       33
 ```
 
-We definitely see that the data seems too align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than months in spring or summer. 
+We definitely see that the data seems to align with our hypothesis. The later months, in autumn and winter, are prone to more accidents than months in spring or summer. 
 
 So this data shows us the results. It's a little confusing to look at though. What about a graph?
 
