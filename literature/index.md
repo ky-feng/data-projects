@@ -1,6 +1,6 @@
 # Analysis of Literariness and Poeticism in Novels
 
-I have always been in avid reader - as a young girl, I spent my recesses in the library, my nose buried in books. When I grew older, I realized the imporance of literary work. Writers are scribes - literature is at once a reflection of human experience and a physical manifestation of human emotion. But how is it possible that lines on a page are transformed into subjective experience? Why is it that Fitzgerald's work near universally imparts an experience of nostalgia; or the Little Prince, something akin to sorrow?
+I have always been in avid reader - as a young girl, I spent my afternoons in libararies, my nose buried in books. Though my passion began with tales of knights and dragons, it grew, in highschool, to an understanding and appreciation for the importance of literary work. Writers are scribes - literature is at once a reflection of human experience and a physical manifestation of human emotion. But how is it possible that lines on a page are transformed into subjective experience? Why is it that Fitzgerald's work near universally imparts an experience of nostalgia; or the Little Prince, something akin to sorrow?
 
 It's an interesting matter, subjective experience - non-reductionists would argue that it's near impossible for hard data to encapsulate the relationship between art and emotion. However, I believe that data is, to an extent, important to our understanding of art and, therefore, self.
 
