@@ -1,10 +1,10 @@
 # Analysis of Literariness and Poeticism in Novels
 
-I have always been in avid reader - as a young girl, I spent my recesses wandering around my school library, my nose buried in some book. When I grew older, I realized the imporance of literary work. Literary novelists are scribes - they share knowledge of human experience, through which we share in human emotions. But how is it possible that lines on a page are transformed into emotion? Why is it that I read Fitzgerald's work, and feel wistfulness; or anger, when reading Sylvia Plath's poetry?
+I have always been in avid reader - as a young girl, I spent my recesses in the library, my nose buried in books. When I grew older, I realized the imporance of literary work. Writers are scribes - literature is at once a reflection of human experience and a physical manifestation of human emotion. But how is it possible that lines on a page are transformed into subjective experience? Why is it that Fitzgerald's work near universally imparts an experience of nostalgia; or the Little Prince, something akin to sorrow?
 
-It's an interesting matter, subjective experience - non-reductionists would argue that it's impossible for hard data to truly detect wihch novels will make us cry, or which would transform our lives. However, I believe that data is important to some understanding of books. I'm willing to try to find out.
+It's an interesting matter, subjective experience - non-reductionists would argue that it's near impossible for hard data to encapsulate the relationship between art and emotion. However, I believe that data is, to an extent, important to our understanding of art and, therefore, self.
 
-For fun, I started this project. I wanted to analyze novels that were "literary" and that had "poetic prose." I wanted to know what exactly it was about authors like Fitzgerald and Nabokov that I enjoyed reading. I also wanted to improve my own short stories, and see how I measure up.
+For fun, I started this project. I wanted to analyze novels that I enjoyed - novels that were at once "literary" and "poetic." I wanted to know what exactly it was about Fitzgerald's prose that touched me, or Nabokov's prose that inspired me. I wanted to know also wanted to improve my own short stories, and see how I measure up.
 
 It's still a work in progress, but here goes...
 
