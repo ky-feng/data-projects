@@ -10,7 +10,9 @@ This project is still a work in progress. I hope you enjoy what I have so far.
 
 ### What novels are considered literary?
 
-Throughout my searching, I discovered a list, dubbed "1001 Books You Must Read Before You Die." I decided to use this list to measure literariness, especially this site: http://bucketlistbookreviews.com/the-lists/differences-between-the-original-and-current-1001-lists/
+So what exactly is literariness? Some could argue what makes a novel "literature" is uncertain and subjective. During my research into the literary canon, I discovered a famous list of novels: "1001 Books You Must Read Before You Die." It seems pretty popular, both for the layman reader (like me), as well as literary scholars. I therefore decided to use this list as inspiration. 
+
+Here is the list I used for my dataset: http://bucketlistbookreviews.com/the-lists/differences-between-the-original-and-current-1001-lists/ (the 2012 version).
 
 Let's save the list into a txt, and transform it into a csv.
 
@@ -37,15 +39,17 @@ display(authors)
 authors.to_csv('authors.csv', index=False, header=False)
 ```
 
-The list I get from Jupyter is kinda long, so I'll just show you the first 15 lines of the 731 I got from 2012.
+The list I got from Jupyter is kinda long, so I'll just show you the first 15 lines of the 731 I got from 2012.
 
 ![authorlist-1001.png](https://ky-feng.github.io/data-projects/literature/authorlist-1001.png)
 
-Going through the list, I see familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift. So many novelists, with so many novels, but not all of them write "poetically" (especially not Hemingway). So how exactly do I measure poeticism?
+Going through the list, I saw familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift. So many novelists, with so many novels, though not all of them wrote "poetically." Speaking of, how exactly do I measure poeticism?
 
 ### What novelists write "poetic" prose?
 
-I often frequent a subreddit, "ProsePorn," which features excerpts from great authors. I figured that if I scraped that subreddit, I'd be able to find the authors whose works consitute as poetic. If i were to cross-reference these novelists with the list above, I'd be able to find literary authors iwth poetic prose.
+Poeticism usually refers to some use of poetic devices, such as alliteration or repetition. However, I often imagine the relationship between poeticism and frequency of poetic devices to be parabolic in nature - peaking, before dipping into the realm of purple prose.
+
+I suppose poeticism is also, in some ways, subjective. I decided to use subjectivity in my determination of what constitutes "poetic" writing. I often frequent a subreddit, "ProsePorn," which features excerpts from short storyists and novelists who write poetically. I figured that if I scraped this subreddit, and then cross-reference the data with  novelists from my 1001 list, I'd be able to find literary authors with poetic prose.
 
 First, to scrape reddit, I learned from this site: https://www.storybench.org/how-to-scrape-reddit-with-python/
 
