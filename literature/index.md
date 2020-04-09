@@ -45,7 +45,7 @@ The list I got from Jupyter is kinda long, so I'll just show you the first 15 li
 
 Going through the list, I saw familiar names: Haruki Murakami, Jennifer Egan, Thomas Pynchon, Jonathan Swift. So many novelists, with so many novels, though not all of them wrote "poetically." Speaking of, how exactly do I measure poeticism?
 
-### What novelists write "poetic" prose?
+### What is "poeticism" really?
 
 Poeticism usually refers to some use of poetic devices, such as alliteration or repetition. However, I often imagine the relationship between poeticism and frequency of poetic devices to be parabolic in nature - peaking, before dipping into the realm of purple prose.
 
