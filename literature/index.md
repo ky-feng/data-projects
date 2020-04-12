@@ -179,7 +179,7 @@ Honestly, not surprised at the results (except for Hemingway). McCarthy's the on
 
 ## Finding Novels and their Data
 
-After relentlessly hunting through the interwebs for txt versions of great novels, I found 47 novels to analyze. from these 47 novels, I derived certain variables...
+After relentlessly hunting through the interwebs for txt versions of great novels, I found 47 novels to analyze. From these 47 novels, I derived certain variables...
 
 - novel name
 - author
@@ -348,7 +348,7 @@ Definitely a correlation, though not terribly strong. Let's just say moderate. L
 
 ### Linear Regression
 
-We break up our data set using the Pareoto Principle (80-20 rule).
+We break up our data set using the Pareto Principle (80-20 rule).
 
 ```
 set.seed(123)
